@@ -9,7 +9,7 @@ Using the chaining methods you can construct your frame in many different standa
     var utils = new Utils();
 
     // Complete frame similar to LIS1-A standard
-    var frame = 
+    var head = 
       build
       .STX()
       .FrameNumber() // or FrameNumber(number) to set manually
