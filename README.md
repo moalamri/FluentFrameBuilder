@@ -27,7 +27,9 @@ Using the chaining methods you can construct your frame in many different standa
     Console.WriteLine(utils.ToPrintable(head));
 ```
 
-Check the online demo
-[https://replit.com/@moalamri/FluentFrameBuilder](https://replit.com/@moalamri/FluentFrameBuilder)
+### Online demo
 
+[https://replit.com/@moalamri/Fluent-Frame-Builder?v=1](https://replit.com/@moalamri/Fluent-Frame-Builder?v=1)
+
+Works with `.Net` and `.Net Framework`
 ### WIP...
