@@ -56,16 +56,6 @@ public class FrameBuilder
         return this;
     }
 
-    public FrameBuilder Byte(byte b){
-        frame.Add(b);
-        return this;
-    }
-
-    public FrameBuilder Bytes(byte[] bytes) {
-        frame.AddRange(bytes);
-        return this;
-    }
-
     private void reset()
     {
         frame = new();

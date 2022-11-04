@@ -30,76 +30,15 @@ Console.WriteLine(utils.ToPrintable(head));
 // <STX>0H|MACH1|0<ETX>EF<CR><LF>
 
 ```
-Or add your own bytes:
-```cs
-    var build = new FrameBuilder();
-    var utils = new Utils();
 
-    var custom = 
-      build
-      .Byte(0x17)
-      .Bytes(new byte[] {0x00, 0x01})
-      .ToArray();
-
-    Console.WriteLine(utils.ToPrintable(custom));
-    // <ETB><NUL><SOH>
-```
-
-Auto frame number
-> To have an auto increment frame number you must start the chain with `Start()` and end it with `End()` before calling `ToArray()` that also will clear the current frame so you can build a new one with the same instance of `FrameBuilder()`.
-```cs
-    var build = new FrameBuilder();
-    var utils = new Utils();
-
-    var H = 
-      build
-      .Start()
-      .STX()
-      .FrameNumber()
-      .MessageContent("H")
-      .ETX()
-      .End()
-      .ToArray();
-
-    Console.WriteLine(utils.ToPrintable(H));
-    // <STX>0H<ETX>
-
-    var P = 
-      build
-      .Start()
-      .STX()
-      .FrameNumber()
-      .MessageContent("P")
-      .ETX()
-      .End()
-      .ToArray();
-
-    Console.WriteLine(utils.ToPrintable(P));
-    // <STX>1P<ETX>
-
-    var Q = 
-      build
-      .Start()
-      .STX()
-      .FrameNumber()
-      .MessageContent("Q")
-      .Pipe(1)
-      .X("N", 5) // This method is to repeat any text for set amount
-      .ETX()
-      .End()
-      .ToArray();
-
-    Console.WriteLine(utils.ToPrintable(Q));
-    // <STX>2Q|NNNNNN<ETX>
-```
-
+> To have an auto increment frame number you must start the chain with `Start()` and end it with `End()` before calling `ToArray()` that also will clear the current frame so you can build a new one.
 
 ### Online demo
 
 [https://replit.com/@moalamri/Fluent-Frame-Builder?v=1](https://replit.com/@moalamri/Fluent-Frame-Builder?v=1)
 
-Works with `.Net (cross-platform)`
+Works with `.Net (cross-platform)` and `.Net Framework (Windows only)`
 ### Todo
-- [x] a chainable method to add custom (user defined) bytes.
-- [ ] a utility method to clean ASCII characters from a set of bytes.
-- [ ] a method to use a fixed bytes length to support machines like Beckman AU480
+- a chainable method to add custom (user defined) bytes.
+- a method to clean a set of bytes from ASCII characters.
+- a method to use a fixed bytes length to support machines like Beckman AU480
