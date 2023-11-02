@@ -104,7 +104,7 @@ public class FrameBuilder
         int cs = 0;
         for (int i = 0; i < completeFrame.Length; i++)
         {
-            cs += (int)completeFrame[i];
+            cs += completeFrame[i];
         }
         cs %= 256;
         string hex = cs.ToString("x").ToUpper();
