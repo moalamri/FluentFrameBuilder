@@ -204,9 +204,9 @@ public class Utils
         string frame = "";
         foreach (char ch in _frame)
         {
-            if ((int)ch <= 32)
+            if (ch <= 32)
             {
-                frame += low[(int)ch];
+                frame += low[ch];
             }
             else
             {
