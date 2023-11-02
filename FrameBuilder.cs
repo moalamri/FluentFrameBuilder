@@ -19,7 +19,6 @@ public class FrameBuilder
       lf = 0x0A;
 
     private byte[] byteToBytes(byte b) => new List<byte> { b }.ToArray();
-    private byte[] stringToBytes(string s) => Encoding.ASCII.GetBytes(s);
     public byte[] ENQ => byteToBytes(enq);
     public byte[] EOT => byteToBytes(eot);
     public byte[] ACK => byteToBytes(ack);
